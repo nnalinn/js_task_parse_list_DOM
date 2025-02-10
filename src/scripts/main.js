@@ -18,4 +18,14 @@ const sortEmployees = () => {
   sortedList.forEach((employee) => ul.appendChild(employee));
 };
 
+const getEmployees = () => {
+  return Array.from(employeeList).map((employee) => ({
+    name: employee.textContent.trim(),
+    position: employee.getAttribute('data-position'),
+    salary: parseSalary(employee.getAttribute('data-salary')),
+    age: parseInt(employee.getAttribute('data-age')),
+  }));
+};
+
 sortEmployees();
+getEmployees();
